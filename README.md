@@ -1,6 +1,6 @@
-#Shopping Help Back-end API
+# Shopping Help Back-end API
 
-##Prerequesites:
+## Prerequesites:
 
 Node JS v.>8.0
 MongoDB v.>=3.2
