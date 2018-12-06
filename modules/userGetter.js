@@ -63,6 +63,18 @@ const Getters = {
               }
             });
           });
+        },
+
+        updateUserToDatabase : (user) => {
+          return new Promise((resolve, reject) => {
+            user.update((err, user) => {
+              if(err){
+                reject(err);
+              } else {
+                resolve(user);
+              }
+            });
+          });
         }
 
 

@@ -3,15 +3,16 @@ var router = express.Router();
 var please = require('../../modules/userLogic');
 var User = require('../controllers/users');
 
-/* GET user */
-router.get('/:id', please.findUserById, User.get);
-
 /* GET All users */
 router.get('/', please.findAllUsers, User.get);
 
-/* POST user */
+/* GET user */
+router.get('/:id', please.findUserById, User.get);
 
+/* POST user */
 router.post('/', please.findUserByEmail, User.insert);
 
+/* PATCH user */
+router.patch('/:id', please.findUserById, User.update);
 
 module.exports = router;
