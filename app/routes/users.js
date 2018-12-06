@@ -1,9 +1,9 @@
 var express = require('express');
 var router = express.Router();
+var please = require('../../modules/userLogic');
+var User = require('../controllers/users');
 
-/* GET users listing. */
-router.get('/', function(req, res, next) {
-  res.send('respond with a resource');
-});
+/* GET user */
+router.get('/:id', please.findUserById, User.get);
 
 module.exports = router;
