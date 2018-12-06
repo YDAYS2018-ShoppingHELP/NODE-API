@@ -39,6 +39,20 @@ const Getters = {
           });
         },
 
+        findAllUsers : () => {
+          return new Promise((resolve, reject) => {
+            userModel.find({}, (err, users) => {
+              if(err){
+                reject(err);
+              } else if(!users){
+                reject(users);
+              } else {
+                resolve(users);
+              }
+            });
+          });
+        },
+
         saveUserToDatabase : (user) => {
           return new Promise((resolve, reject) => {
             user.save((err, user) => {

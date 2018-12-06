@@ -6,7 +6,7 @@ const Users = {
           get : (req, res) => {
             res.status(200).json({
               status : 200,
-              message : req.existingUser
+              message : req.existingUsers || req.existingUser
             })
           },
 
