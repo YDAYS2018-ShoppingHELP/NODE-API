@@ -1,5 +1,5 @@
 const userModel = require('../models/user');
-
+const userGetter = require('../../modules/userGetter');
 
 const Users = {
 
@@ -8,23 +8,21 @@ const Users = {
               status : 200,
               message : req.existingUser
             })
-
           },
 
 
           insert : (req, res) => {
-
-            req.existingUser.save()
+            userGetter.saveUserToDatabase(req.existingUser)
             .then((savedUser) => {
-              res.status(201).json({
-                status: 201,
-                message : `User inserted in database`,
+              res.status(200).json({
+                status : 200,
+                message : savedUser
               })
             })
             .catch((error) => {
               res.status(500).json({
-                status: 500,
-                message : `${error}`,
+                status : 500,
+                message : `${error}`
               })
             })
           },
