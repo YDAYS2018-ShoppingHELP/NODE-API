@@ -15,4 +15,7 @@ router.post('/', please.findUserByEmail, User.insert);
 /* PATCH user */
 router.patch('/:id', please.findUserById, User.update);
 
+/* DELETE all users */
+router.delete('/', please.findAllUsers, User.deleteAll);
+
 module.exports = router;
