@@ -4,6 +4,13 @@ const productGetter = require('../../modules/productGetter');
 
 const Products = {
 
+          get : (req, res) => {
+            res.status(200).json({
+              status : 200,
+              message : req.existingProduct
+            })
+          },
+
           insert : (req, res) => {
             productGetter.saveProductToDatabase(req.existingProduct)
             .then((savedProduct) => {
@@ -19,6 +26,8 @@ const Products = {
               })
             })
           }
+
+
 
 };
 

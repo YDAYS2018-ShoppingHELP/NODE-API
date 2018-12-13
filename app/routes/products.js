@@ -3,8 +3,10 @@ var router = express.Router();
 var please = require('../../modules/productLogic');
 var Product = require('../controllers/products');
 
+/* GET product */
+router.get('/:id', please.findProductById, Product.get);
 
-/* INSERT PRODUCT */
+/* INSERT product */
 router.post('/', please.findProductByReference, Product.insert);
 
 module.exports = router;
