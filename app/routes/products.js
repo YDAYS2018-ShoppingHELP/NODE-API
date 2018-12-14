@@ -12,4 +12,7 @@ router.get('/', please.findAllProductsById, Product.get);
 /* INSERT product */
 router.post('/', please.findProductByReference, Product.insert);
 
+/* DELETE product */
+router.delete('/:id', please.findProductById, Product.delete);
+
 module.exports = router;

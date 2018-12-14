@@ -60,8 +60,8 @@ const Getters = {
               } else {
                 resolve(product);
               }
-            })
-          })
+            });
+          });
         },
 
         updateProductToDatabase : (product) => {
@@ -72,7 +72,19 @@ const Getters = {
               } else {
                 resolve(product);
               }
-            })
+            });
+          });
+        },
+
+        deleteProductFromDatabase : (product) => {
+          return new Promise((resolve, reject) => {
+            productModel.findOneAndDelete(product._id, (err, result) => {
+              if(err){
+                reject(err);
+              } else {
+                resolve(result);
+              }
+            });
           });
         }
 };

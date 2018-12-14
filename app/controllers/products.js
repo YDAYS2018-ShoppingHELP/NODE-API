@@ -41,7 +41,23 @@ const Products = {
                 message : `${error}`
               })
             })
-          }
+          },
+
+          delete : (req, res) => {
+            productGetter.deleteProductFromDatabase(req.existingProduct)
+            .then((result) => {
+              res.status(200).json({
+                status : 200,
+                message : `successfully deleted product`
+              })
+            })
+            .catch((error) => {
+              res.status(500).json({
+                status : 500,
+                message : `${error}`
+              })
+            })
+          },
 
 
 
