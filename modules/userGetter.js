@@ -6,7 +6,7 @@ const Getters = {
 
         findUserById : (id) => {
           return new Promise((resolve, reject) => {
-            userModel.findOne({ 'id' : id}, (err, user) => {
+            userModel.findOne({ '_id' : id}, (err, user) => {
               if(err){
                 reject(err);
               } else if(!user){
@@ -75,9 +75,19 @@ const Getters = {
               }
             });
           });
+        },
+
+        deleteUserFromDatabase : (user) => {
+          return new Promise((resolve, reject) => {
+            userModel.findOneAndDelete(user._id, (err, result) => {
+              if(err){
+                reject(err);
+              } else {
+                resolve(result);
+              }
+            })
+          });
         }
-
-
 };
 
 module.exports = Getters;
