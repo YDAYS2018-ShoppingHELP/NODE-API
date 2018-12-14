@@ -88,9 +88,19 @@ const Getters = {
               }
             });
           });
+        },
+
+        deleteUserFromDatabase : (user) => {
+          return new Promise((resolve, reject) => {
+            userModel.findOneAndDelete(user._id, (err, result) => {
+              if(err){
+                reject(err);
+              } else {
+                resolve(result);
+              }
+            })
+          });
         }
-
-
 };
 
 module.exports = Getters;
