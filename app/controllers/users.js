@@ -10,7 +10,6 @@ const Users = {
             })
           },
 
-
           insert : (req, res) => {
             userGetter.saveUserToDatabase(req.existingUser)
             .then((savedUser) => {
