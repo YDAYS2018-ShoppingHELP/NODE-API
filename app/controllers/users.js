@@ -6,7 +6,7 @@ const Users = {
           get : (req, res) => {
             res.status(200).json({
               status : 200,
-              message : req.existingUser
+              message : req.existingUsers || req.existingUser
             })
           },
 
@@ -28,8 +28,19 @@ const Users = {
           },
 
           update : (req, res) => {
-
-
+            userGetter.updateUserToDatabase(req.existingUser)
+            .then((savedUser) => {
+              res.status(200).json({
+                status : 200,
+                message : savedUser
+              })
+            })
+            .catch((error) => {
+              res.status(500).json({
+                status : 500,
+                message : `${error}`
+              })
+            })
           },
 
           delete : (req, res) => {

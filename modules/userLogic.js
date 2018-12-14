@@ -25,6 +25,20 @@ const Logic = {
         },
 
 
+        findAllUsers : (req, res, next) => {
+          userGetter.findAllUsers()
+          .then((existingUsers) => {
+            req.existingUsers = existingUsers;
+            next();
+          })
+          .catch((error) => {
+            res.status(500).json({
+              message : `${error}`,
+              statusCode : 500
+            });
+          })
+        },
+
         findUserByEmail : (req, res, next) => {
           userGetter.findUserByEmail(req.body.email)
           .then((existingUser) => {
