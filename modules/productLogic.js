@@ -23,6 +23,19 @@ const Logic = {
             })
           },
 
+          findAllProductsById : (req, res, next) => {
+            productGetter.findAllProductsById()
+            .then((existingProducts) => {
+              req.existingProducts = existingProducts;
+              next();
+            })
+            .catch((error) => {
+              res.status(500).json({
+                message : `${error}`,
+                statusCode : 500
+              });
+            })
+          },
 
           findProductByReference : (req, res, next) => {
             productGetter.findProductByReference(req.body.reference)

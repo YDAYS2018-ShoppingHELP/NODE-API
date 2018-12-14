@@ -15,7 +15,19 @@ const Getters = {
           });
         },
 
-        
+        findAllProductsById : () => {
+          return new Promise((resolve, reject) => {
+            productModel.find({}, (err, products) => {
+              if(err){
+                reject(err);
+              } else {
+                resolve(products);
+              }
+            });
+          });
+        },
+
+
         findProductByReference : (reference) => {
           return new Promise((resolve, reject) => {
 
@@ -50,6 +62,18 @@ const Getters = {
               }
             })
           })
+        },
+
+        updateProductToDatabase : (product) => {
+          return new Promise((resolve, reject) => {
+            user.update((err, product) => {
+              if(err){
+                reject(err);
+              } else {
+                resolve(product);
+              }
+            })
+          });
         }
 };
 
