@@ -41,7 +41,6 @@ const Getters = {
 
         findAllUsers : () => {
           return new Promise((resolve, reject) => {
-            console.log("here 1");
             userModel.find({}, (err, users) => {
               if(err){
                 reject(err);

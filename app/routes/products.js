@@ -15,4 +15,7 @@ router.post('/', please.findProductByReference, Product.insert);
 /* DELETE product */
 router.delete('/:id', please.findProductById, Product.delete);
 
+/* DELETE all products */
+router.delete('/', please.findAllProductsById, Product.deleteAll);
+
 module.exports = router;

@@ -55,9 +55,25 @@ const Products = {
               res.status(500).json({
                 status : 500,
                 message : `${error}`
-              })
+              });
             })
           },
+
+          deleteAll : (req, res) => {
+            productGetter.deleteAllProductsFromDatabase()
+            .then((result) => {
+              res.status(200).json({
+                status : 200,
+                message : `successfully deleted all products`
+              })
+            })
+            .catch((error) => {
+              res.status(500).json({
+                status : 500,
+                message : `${error}`
+              });
+            })
+          }
 
 
 

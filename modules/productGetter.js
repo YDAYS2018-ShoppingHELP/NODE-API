@@ -27,7 +27,6 @@ const Getters = {
           });
         },
 
-
         findProductByReference : (reference) => {
           return new Promise((resolve, reject) => {
 
@@ -83,6 +82,18 @@ const Getters = {
                 reject(err);
               } else {
                 resolve(result);
+              }
+            });
+          });
+        },
+
+        deleteAllProductsFromDatabase : (product) => {
+          return new Promise((resolve, reject) => {
+            productModel.deleteMany({}, (err, users)=> {
+              if(err){
+                reject(err);
+              } else {
+                resolve(users);
               }
             });
           });
