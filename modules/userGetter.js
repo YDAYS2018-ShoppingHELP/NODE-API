@@ -41,6 +41,7 @@ const Getters = {
 
         findAllUsers : () => {
           return new Promise((resolve, reject) => {
+            console.log("here 1");
             userModel.find({}, (err, users) => {
               if(err){
                 reject(err);
@@ -72,6 +73,18 @@ const Getters = {
                 reject(err);
               } else {
                 resolve(user);
+              }
+            });
+          });
+        },
+
+        deleteAllUsersFromDatabase : () => {
+          return new Promise((resolve, reject) => {
+            userModel.deleteMany({}, (err, users)=> {
+              if(err){
+                reject(err);
+              } else {
+                resolve(users);
               }
             });
           });

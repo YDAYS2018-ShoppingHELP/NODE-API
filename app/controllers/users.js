@@ -42,12 +42,27 @@ const Users = {
             })
           },
 
+          deleteAll : (req, res) => {
+            userGetter.deleteAllUsersFromDatabase()
+            .then((result) => {
+              res.status(200).json({
+                status : 200,
+                message : `user successfully deleted`
+              })
+              .catch((error) => {
+              res.status(500).json({
+                status : 500,
+                message : `${error}`
+              })
+            }),
+
           delete : (req, res) => {
             userGetter.deleteUserFromDatabase(req.existingUser)
             .then((result) => {
               res.status(200).json({
                 status : 200,
                 message : `user successfully deleted`
+
               })
             })
             .catch((error) => {
