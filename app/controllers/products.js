@@ -7,7 +7,7 @@ const Products = {
           get : (req, res) => {
             res.status(200).json({
               status : 200,
-              message : req.existingProduct
+              message : req.existingProduct || req.existingProducts
             })
           },
 
@@ -20,6 +20,22 @@ const Products = {
               })
             })
             .catch((error) => {
+              res.status(500).json({
+                status : 500,
+                message : `${error}`
+              })
+            })
+          }
+
+          update : (req, res) => {
+            productGetter.updateProductToDatabase(req.existingProduct)
+            .then((savedProduct) => {
+              res.status(200).json({
+                status : 200,
+                message : savedUser
+              })
+            })
+            .then((error) => {
               res.status(500).json({
                 status : 500,
                 message : `${error}`

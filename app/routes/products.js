@@ -6,6 +6,9 @@ var Product = require('../controllers/products');
 /* GET product */
 router.get('/:id', please.findProductById, Product.get);
 
+/* GET all products */
+router.get('/', please.findAllProductsById, Product.get);
+
 /* INSERT product */
 router.post('/', please.findProductByReference, Product.insert);
 
