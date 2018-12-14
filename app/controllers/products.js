@@ -25,7 +25,7 @@ const Products = {
                 message : `${error}`
               })
             })
-          }
+          },
 
           update : (req, res) => {
             productGetter.updateProductToDatabase(req.existingProduct)
