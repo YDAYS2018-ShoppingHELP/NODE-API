@@ -38,6 +38,18 @@ const Getters = {
             });
           },
 
+          findAllStoresById : () => {
+            return new Promise((resolve, reject) => {
+              storeModel.find({}, (err, stores) => {
+                if(err){
+                  reject(err);
+                } else {
+                  resolve(stores);
+                }
+              });
+            });
+          },
+
           saveStoreToDatabase : (store) => {
             return new Promise((resolve, reject) => {
               store.save((err, store) => {

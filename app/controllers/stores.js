@@ -8,7 +8,7 @@ const Stores = {
         get : (req, res) => {
           res.status(200).json({
             status : 200,
-            message : req.existingStore || req.existingStore
+            message : req.existingStore || req.existingStores
           })
         },
 

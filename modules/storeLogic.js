@@ -34,6 +34,20 @@ const Logic = {
                 statusCode : 500
               });
             })
+          },
+
+          findAllStoresById : (req, res, next) => {
+            storeGetter.findAllStoresById()
+            .then((existingStores) => {
+              req.existingStores = existingStores;
+              next();
+            })
+            .catch((error) => {
+              res.status(500).json({
+                message : `${error}`,
+                statusCode : 500
+              });
+            })
           }
 
 };
