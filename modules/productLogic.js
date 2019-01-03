@@ -53,6 +53,7 @@ const Logic = {
                 req.existingProduct.reference = req.body.reference;
                 req.existingProduct.price = req.body.price,
                 req.existingProduct.description = req.body.description;
+
                 next();
               }
             })
