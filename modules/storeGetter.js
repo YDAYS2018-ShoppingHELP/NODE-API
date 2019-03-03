@@ -26,7 +26,7 @@ const Getters = {
             });
           },
 
-          findStoreById : (store) => {
+          findStoreById : (id) => {
             return new Promise((resolve, reject) => {
               storeModel.findOne({ '_id' : id }, (err, store) => {
                 if(err){
@@ -50,6 +50,18 @@ const Getters = {
             });
           },
 
+          insertStoreToDatabase : (store) => {
+            return new Promise((resolve, reject) => {
+              storeModel.update((err, store) => {
+                if(err) {
+                  reject(err);
+                } else {
+                  resolve(store);
+                }
+              });
+            });
+          },
+
           saveStoreToDatabase : (store) => {
             return new Promise((resolve, reject) => {
               store.save((err, store) => {
@@ -60,6 +72,18 @@ const Getters = {
                 }
               });
             });
+          },
+
+          deleteStoreFromDatabase : (store) => {
+            return new Promise((resolve, reject) => {
+              storeModel.findOneAndDelete(store._id, (err, result) => {
+                if(err) {
+                  reject(err);
+                } else {
+                  resolve(result);
+                }
+              })
+            })
           }
 };
 

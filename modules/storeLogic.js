@@ -28,7 +28,7 @@ const Logic = {
               req.existingStore = existingStore;
               next();
             })
-            .catch((existingStore) => {
+            .catch((error) => {
               res.status(500).json({
                 message : `${error}`,
                 statusCode : 500

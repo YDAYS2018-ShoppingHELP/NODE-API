@@ -26,6 +26,38 @@ const Stores = {
               message : `${error}`
             });
           })
+        },
+
+        update : (req, res) => {
+          storeGetter.insertStoreToDatabase(req.existingStore)
+          .then((savedStore) => {
+            res.status(200).json({
+              status : 200,
+              message : savedStore
+            });
+          })
+          .catch((error) => {
+            res.status(500).json({
+              status : 500,
+              message : `${error}`
+            });
+          })
+        },
+
+        delete : (req, res) => {
+          storeGetter.deleteStoreFromDatabase(req.existingStore)
+          .then((existingStore) => {
+            res.status(200).json({
+              status : 200,
+              message : existingStore
+            });
+          })
+          .catch((error) => {
+            res.status(500).json({
+              status : 500,
+              message : `${error}`
+            });
+          })
         }
 }
 

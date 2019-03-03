@@ -13,6 +13,12 @@ router.get('/', please.findAllStoresById, Store.get);
 /* POST store */
 router.post('/', please.findStoreByGPS, Store.insert);
 
+/* PATCH store */
+router.patch('/:id', please.findStoreById, Store.update);
+
+/* DELETE store */
+router.delete('/:id', please.findStoreById, Store.delete);
+
 
 
 module.exports = router;

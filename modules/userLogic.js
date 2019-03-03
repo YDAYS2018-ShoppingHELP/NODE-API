@@ -6,15 +6,8 @@ const Logic = {
         findUserById : (req, res, next) => {
           userGetter.findUserById(req.params.id)
           .then((existingUser) => {
-            if(!existingUser){
-              res.status(403).json({
-                message : `User does not exist in database`,
-                statusCode : 403
-              });
-            } else {
-              req.existingUser = existingUser;
-              next();
-            }
+            req.existingUser = existingUser;
+            next();
           })
           .catch((error) => {
             res.status(500).json({
