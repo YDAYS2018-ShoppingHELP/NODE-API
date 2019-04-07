@@ -50,7 +50,7 @@ const Getters = {
             });
           },
 
-          insertStoreToDatabase : (store) => {
+          updateStoreToDatabase : (store) => {
             return new Promise((resolve, reject) => {
               storeModel.update((err, store) => {
                 if(err) {
@@ -62,7 +62,7 @@ const Getters = {
             });
           },
 
-          saveStoreToDatabase : (store) => {
+          insertStoreToDatabase : (store) => {
             return new Promise((resolve, reject) => {
               store.save((err, store) => {
                 if (err) {
